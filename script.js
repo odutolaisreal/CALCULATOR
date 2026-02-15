@@ -1,120 +1,156 @@
-"use strict";
+/**
+ * Wisdom Show - Framer-Style Landing Page
+ * Interactive behaviors: smooth scroll, FAQ accordion, mobile menu, scroll animations
+ */
 
-var input = document.getElementById('input'), // input/output button
-  number = document.querySelectorAll('.numbers div'), // number buttons
-  operator = document.querySelectorAll('.operators div'), // operator buttons
-  result = document.getElementById('result'), // equal button
-  clear = document.getElementById('clear'), // clear button
-  resultDisplayed = false; // flag to keep an eye on what output is displayed
+(function() {
+  'use strict';
 
-// adding click handlers to number buttons
-for (var i = 0; i < number.length; i++) {
-  number[i].addEventListener("click", function(e) {
+  // ============================================
+  // SMOOTH SCROLLING FOR ANCHOR LINKS
+  // ============================================
 
-    // storing current input string and its last character in variables - used later
-    var currentString = input.innerHTML;
-    var lastChar = currentString[currentString.length - 1];
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
 
-    // if result is not diplayed, just keep adding
-    if (resultDisplayed === false) {
-      input.innerHTML += e.target.innerHTML;
-    } else if (resultDisplayed === true && lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
-      // if result is currently displayed and user pressed an operator
-      // we need to keep on adding to the string for next operation
-      resultDisplayed = false;
-      input.innerHTML += e.target.innerHTML;
-    } else {
-      // if result is currently displayed and user pressed a number
-      // we need clear the input string and add the new input to start the new opration
-      resultDisplayed = false;
-      input.innerHTML = "";
-      input.innerHTML += e.target.innerHTML;
-    }
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
 
+        // Close mobile menu if open
+        document.querySelector('.mobile-nav')?.classList.remove('active');
+      }
+    });
   });
-}
 
-// adding click handlers to number buttons
-for (var i = 0; i < operator.length; i++) {
-  operator[i].addEventListener("click", function(e) {
+  // ============================================
+  // HEADER SCROLL EFFECT
+  // ============================================
 
-    // storing current input string and its last character in variables - used later
-    var currentString = input.innerHTML;
-    var lastChar = currentString[currentString.length - 1];
+  const header = document.getElementById('header');
+  let lastScroll = 0;
 
-    // if last character entered is an operator, replace it with the currently pressed one
-    if (lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
-      var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
-      input.innerHTML = newString;
-    } else if (currentString.length == 0) {
-      // if first key pressed is an opearator, don't do anything
-      console.log("enter a number first");
-    } else {
-      // else just add the operator pressed to the input
-      input.innerHTML += e.target.innerHTML;
-    }
+  function handleScroll() {
+    const currentScroll = window.pageYOffset;
+    header.classList.toggle('scrolled', currentScroll > 50);
+    lastScroll = currentScroll;
+  }
 
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // ============================================
+  // MOBILE MENU TOGGLE
+  // ============================================
+
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const body = document.body;
+
+  if (mobileMenuBtn && mobileNav) {
+    mobileMenuBtn.addEventListener('click', function() {
+      const isOpen = mobileNav.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      body.style.overflow = isOpen ? 'hidden' : '';
+
+      // Animate hamburger to X
+      mobileMenuBtn.classList.toggle('open', isOpen);
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        mobileNav.classList.remove('active');
+        body.style.overflow = '';
+        mobileMenuBtn.classList.remove('open');
+      }
+    });
+  }
+
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+
+  const faqItems = document.querySelectorAll('.faq__item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq__question');
+    if (!question) return;
+
+    question.addEventListener('click', function() {
+      const isActive = item.classList.contains('active');
+
+      // Close all other items
+      faqItems.forEach(other => {
+        other.classList.remove('active');
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
   });
-}
 
-// on click of 'equal' button
-result.addEventListener("click", function() {
+  // ============================================
+  // SCROLL REVEAL ANIMATIONS
+  // ============================================
 
-  // this is the string that we will be processing eg. -10+26+33-56*34/23
-  var inputString = input.innerHTML;
+  const revealElements = document.querySelectorAll(
+    '.feature-card, .section-title, .section-subtitle, ' +
+    '.testimonial-card, .about__content, .about__images, ' +
+    '.dashboard-mockup, .faq__list, .cta-section__title, .cta-section__subtitle'
+  );
 
-  // forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
-  var numbers = inputString.split(/\+|\-|\×|\÷/g);
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.1
+  };
 
-  // forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
-  // first we replace all the numbers and dot with empty string and then split
-  var operators = inputString.replace(/[0-9]|\./g, "").split("");
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, observerOptions);
 
-  console.log(inputString);
-  console.log(operators);
-  console.log(numbers);
-  console.log("----------------------------");
+  revealElements.forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
 
-  // now we are looping through the array and doing one operation at a time.
-  // first divide, then multiply, then subtraction and then addition
-  // as we move we are alterning the original numbers and operators array
-  // the final element remaining in the array will be the output
+  // ============================================
+  // PARALLAX EFFECT FOR HERO SHAPES (subtle)
+  // ============================================
 
-  var divide = operators.indexOf("÷");
-  while (divide != -1) {
-    numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
-    operators.splice(divide, 1);
-    divide = operators.indexOf("÷");
-  }
+  const heroShapes = document.querySelectorAll('.hero__shape');
 
-  var multiply = operators.indexOf("×");
-  while (multiply != -1) {
-    numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
-    operators.splice(multiply, 1);
-    multiply = operators.indexOf("×");
-  }
+  window.addEventListener('scroll', function() {
+    if (window.innerWidth < 768) return;
 
-  var subtract = operators.indexOf("-");
-  while (subtract != -1) {
-    numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
-    operators.splice(subtract, 1);
-    subtract = operators.indexOf("-");
-  }
+    const scrolled = window.pageYOffset;
+    const heroHeight = document.querySelector('.hero')?.offsetHeight || 800;
+    const progress = Math.min(scrolled / heroHeight, 1);
 
-  var add = operators.indexOf("+");
-  while (add != -1) {
-    // using parseFloat is necessary, otherwise it will result in string concatenation :)
-    numbers.splice(add, 2, parseFloat(numbers[add]) + parseFloat(numbers[add + 1]));
-    operators.splice(add, 1);
-    add = operators.indexOf("+");
-  }
+    heroShapes.forEach((shape, i) => {
+      const speed = (i === 0 ? 0.3 : 0.2) * progress * 50;
+      shape.style.transform = `translateY(${speed}px)`;
+    });
+  }, { passive: true });
 
-  input.innerHTML = numbers[0]; // displaying the output
+  // Reset parallax on load
+  window.addEventListener('load', function() {
+    heroShapes.forEach(shape => {
+      shape.style.transform = '';
+    });
+  });
 
-  resultDisplayed = true; // turning flag if result is displayed
-});
-
-// clearing the input on press of clear
-clear.addEventListener("click", function() {
-  input.innerHTML = "";
-})
+})();
