@@ -4,46 +4,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="Wisdom Game Show - Test your biblical knowledge and win amazing prizes up to ₦1,000,000">
+  <title>Wisdom Game Show | Biblical Wisdom. Real Rewards.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="calculator">
-    <div class="input" id="input"></div>
-    <div class="buttons">
-      <div class="operators">
-        <div>+</div>
-        <div>-</div>
-        <div>&times;</div>
-        <div>&divide;</div>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <span class="logo__icon">W</span>
+        <span class="logo__text">Wisdom Show</span>
+      </a>
+      <nav class="nav">
+        <a href="#hero" class="nav__link">Home</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#features" class="nav__link">How it Works</a>
+        <a href="#testimonials" class="nav__link">Testimonials</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="/login" class="btn btn--ghost">Login</a>
+        <a href="/register" class="btn btn--primary">Start Playing →</a>
       </div>
-      <div class="leftPanel">
-        <div class="numbers">
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-        </div>
-        <div class="numbers">
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-        </div>
-        <div class="numbers">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <div class="numbers">
-          <div>0</div>
-          <div>.</div>
-          <div id="clear">C</div>
-        </div>
-      </div>
-      <div class="equal" id="result">=</div>
+      <button class="mobile-menu-btn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
-  <script src="./script.js"></script>
+    <nav class="mobile-nav" aria-hidden="true">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">How it Works</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="/login">Login</a>
+      <a href="/register" class="btn btn--primary">Start Playing</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <div class="hero__gradient"></div>
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <p class="hero__badge">LIVE SHOW EVERY SATURDAY →</p>
+        <h1 class="hero__title">Biblical Wisdom.<br>Real Rewards.</h1>
+        <p class="hero__subtitle">
+          Turn your knowledge into meaningful rewards. Answer trivia questions, 
+          qualify for our live game show, and win cash prizes up to ₦1,000,000.
+        </p>
+        <a href="/register" class="btn btn--primary btn--lg hero__cta">Start Playing for Free →</a>
+        <div class="hero__trust">
+          <div class="hero__stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span>4.9 rating (2,500+ players)</span>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__phone-mockup">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="app-header">
+                  <span>Hello, Player</span>
+                  <div class="app-avatar"></div>
+                </div>
+                <div class="app-card">
+                  <span class="app-card__label">Amount Saved</span>
+                  <span class="app-card__value">₦568</span>
+                  <span class="app-card__trend">↑</span>
+                </div>
+                <div class="app-tabs">
+                  <span class="active">FOR GOALS</span>
+                  <span>EMERGENCY</span>
+                </div>
+                <div class="app-stats">
+                  <div><span>Income</span><strong>₦1,152</strong></div>
+                  <div><span>Expense</span><strong>₦948</strong></div>
+                </div>
+                <div class="app-savings">Savings ₦203</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works Bar -->
+    <section class="how-it-works-bar">
+      <div class="container">
+        <h2 class="how-it-works-bar__title">How It Works</h2>
+        <p class="how-it-works-bar__subtitle">Read • Learn • Earn • Redeem</p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="features__grid">
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="feature-card__title">Buy Your Gear PRO</h3>
+            <p class="feature-card__desc">Unlock premium features and advanced rewards</p>
+            <div class="feature-card__price">
+              <span class="feature-card__price-label">Premium Access</span>
+              <span class="feature-card__price-value">₦9.99</span>
+              <button class="btn btn--primary btn--sm">Upgrade Now</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 class="feature-card__title">Ace the Character Quiz</h3>
+            <p class="feature-card__desc">Test your biblical knowledge and earn rewards</p>
+            <div class="feature-card__quiz">
+              <span class="feature-card__quiz-label">Next Quiz</span>
+              <span class="feature-card__quiz-name">Bible Heroes</span>
+              <button class="btn btn--outline btn--sm">Start Quiz</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="feature-card__title">Score 5/5 to Qualify</h3>
+            <p class="feature-card__desc">Perfect scores unlock special bonuses</p>
+            <div class="feature-card__score">
+              <span class="feature-card__score-value">5/5</span>
+              <button class="btn btn--accent btn--sm">Claim Reward</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="feature-card__title">Win Big on Saturday</h3>
+            <p class="feature-card__desc">Weekly live challenges with amazing prizes</p>
+            <div class="feature-card__live">
+              <span class="feature-card__live-badge">LIVE NOW</span>
+              <span class="feature-card__live-text">Grand Challenge</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+      <div class="container">
+        <h2 class="section-title">Your Personal Hub<br>for Wisdom & Rewards</h2>
+        <p class="section-subtitle">Track your progress, manage rewards, and grow your spiritual journey</p>
+        <div class="dashboard-visual">
+          <div class="dashboard-mockup">
+            <div class="dashboard-mockup__header">
+              <span>My Progress</span>
+              <span>Dashboard</span>
+            </div>
+            <div class="dashboard-mockup__content">
+              <div class="dashboard-stat"><span>Points Earned</span><strong>2,450</strong></div>
+              <div class="dashboard-stat"><span>Quizzes Passed</span><strong>12</strong></div>
+              <div class="dashboard-stat"><span>Win Streak</span><strong>5</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__content">
+            <span class="about__eyebrow">About Us</span>
+            <h2 class="about__title">Empowering individuals to grow in wisdom through knowledge and rewards.</h2>
+            <p class="about__text">
+              The Wisdom Game Show is a live, interactive quiz experience where you test your 
+              biblical knowledge, qualify through online stages, and compete for cash prizes 
+              up to ₦1,000,000 on our televised game show.
+            </p>
+            <ul class="about__list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <div>
+                  <strong>Read & Learn</strong>
+                  <span>Engage with scripture daily and build your knowledge</span>
+                </div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <div>
+                  <strong>Earn & Redeem</strong>
+                  <span>Answer correctly, earn points, and redeem rewards</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="about__images">
+            <div class="about__img about__img--1"></div>
+            <div class="about__img about__img--2"></div>
+            <div class="about__img about__img--3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Loved by Our Community</h2>
+        <div class="testimonials__rating">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span>4.9 out of 5 stars (2,500+ reviews)</span>
+        </div>
+        <div class="testimonials__grid">
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">"This app has transformed my daily devotional time. The rewards system keeps me motivated to learn more every day!"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar"></div>
+              <div>
+                <strong>Sarah M.</strong>
+                <span>Active Player</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">"The live show experience is incredible. I qualified and actually won! The whole process from quiz to stage was seamless."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar testimonial-card__avatar--2"></div>
+              <div>
+                <strong>David O.</strong>
+                <span>Winner, Season 2</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">"Finally, something that makes Bible study fun and rewarding. My whole family plays together every Saturday!"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar testimonial-card__avatar--3"></div>
+              <div>
+                <strong>Chinwe A.</strong>
+                <span>Family Player</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Common Questions & Answers</h2>
+        <div class="faq__list">
+          <div class="faq__item">
+            <button class="faq__question">What is The Wisdom Game Show?</button>
+            <div class="faq__answer">
+              <p>The Wisdom Game Show is a live, interactive quiz game where you qualify for a televised game show by answering questions online. Purchase a PIN, pass two stages, and you could be invited to compete live for cash prizes up to ₦1,000,000.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">How do I play?</button>
+            <div class="faq__answer">
+              <p>Buy a PIN, log in, and start playing. Answer all 5 questions correctly in Stage 1 to proceed to Stage 2. Pass both stages to qualify for the Live Show.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">How much does it cost to play?</button>
+            <div class="faq__answer">
+              <p>Each attempt costs ₦500 for one PIN, which gives you access to both online stages.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question">Do I win money in the online stages?</button>
+            <div class="faq__answer">
+              <p>No. The online stages are for qualification only. Passing both stages makes you eligible to be selected for the Live Show, where all cash prizes are won.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__more">
+          <a href="#" class="btn btn--outline">See More FAQs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="m6 9 6 6 6-6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-section__title">Ready to Play?</h2>
+        <p class="cta-section__subtitle">Download now and start your journey to wisdom and rewards</p>
+        <div class="cta-section__buttons">
+          <a href="#" class="store-btn">
+            <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 46.9 101.7 86.1 101.7 29.1 0 40.2-20.6 89.2-20.6 49.2 0 60.2 20.6 91.7 20.6 33.5 0 65.9-61.8 83.6-102.7 4.9-11.4 17.1-45 17.1-45-45.9-17.5-76.8-60.8-76.8-103.8zm-92.2-150.6c23.4-32.2 18.5-88.6-2.2-114.5-32.6 4.3-66.9 23.2-87.7 52.1-19.1 27.9-15.9 81.8 3.7 109.5 28.5 3.3 61.3-19.5 86.2-47.1z"/></svg>
+            <div>
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="#" class="store-btn">
+            <svg viewBox="0 0 512 512" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3-60.1-60.1L47 499z"/></svg>
+            <div>
+              <span>Get it on</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__icon">W</span>
+          <span class="logo__text">Wisdom Show</span>
+        </a>
+        <p class="footer__copyright">© 2025 The Wisdom Game. All rights reserved.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
