@@ -118,13 +118,21 @@ Edit `tailwind.config.ts` and `globals.css`:
 }
 ```
 
+### Phone Mockup Image
+
+Place your phone mockup image in `public/phone-mockup.png`. The Hero displays it automatically. Recommended: 560×1136px (9:19 ratio). To use a different path, pass `phoneMockupSrc` to `<Hero />`.
+
+### Biblical Animated Characters
+
+Subtle biblical motifs (dove, book, scroll, star) animate in the Hero. Edit `BiblicalCharacters.tsx` to adjust or add Lottie animations for custom character art.
+
 ### Links
 
 Update these in components:
 
 - `Navbar.tsx`: `/login`, `/register`
 - `CTA.tsx`: App Store / Google Play URLs
-- `Footer.tsx`: Privacy, Terms, Contact, social links
+- `Footer.tsx`: social links (Privacy, Terms, Contact are at `/privacy`, `/terms`, `/contact`)
 
 ## 📦 Dependencies
 

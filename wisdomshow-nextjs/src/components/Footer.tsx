@@ -42,13 +42,13 @@ export function Footer() {
             © 2025 The Wisdom Game. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
+            <Link href="/privacy" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
+            <Link href="/terms" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
               Terms
             </Link>
-            <Link href="#" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
+            <Link href="/contact" className="text-sm text-[var(--color-text-muted)] hover:text-primary transition-colors">
               Contact
             </Link>
           </div>

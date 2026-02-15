@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#features", label: "How it Works" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#hero", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#features", label: "How it Works" },
+  { href: "/#testimonials", label: "Testimonials" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
